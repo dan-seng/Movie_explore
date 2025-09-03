@@ -1,7 +1,12 @@
+import Banner from "../components/Banner";
+import MovieGrid from "../components/MovieGrid";
+
+
 export default function Trending(){
     return(
         <>
-        <h1>Trending</h1>
+         <Banner/>
+         <MovieGrid/>
         </>
     )
 }
