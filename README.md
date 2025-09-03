@@ -1,50 +1,92 @@
-# Vite & HeroUI Template
+# 🎬 Movie Explorer
 
-This is a template for creating applications using Vite and HeroUI (v2).
+A modern, responsive movie discovery application built with React and powered by the TMDB API. Explore trending movies, search by genre, view movie details, and more.
 
-[Try it on CodeSandbox](https://githubbox.com/frontio-ai/vite-template)
+![Movie Explorer Screenshot](./public/screenshot.png)
 
-## Technologies Used
+## ✨ Features
 
-- [Vite](https://vitejs.dev/guide/)
-- [HeroUI](https://heroui.com)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org)
-- [Framer Motion](https://www.framer.com/motion)
+- 🎥 Browse trending movies
+- 🔍 Search and filter movies by genre
+- ⭐ View movie details including ratings and cast
+- 🎬 Watch movie trailers
+- 🌓 Dark/Light mode support
+- 📱 Fully responsive design
 
-## How to Use
+## 🛠️ Technologies Used
 
-To clone the project, run the following command:
+- ⚡ [Vite](https://vitejs.dev/) - Next Generation Frontend Tooling
+- ⚛️ [React 18](https://reactjs.org/) - JavaScript library for building user interfaces
+- 🎨 [HeroUI](https://heroui.com/) - Beautiful, responsive UI components
+- 🎨 [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- 🎞️ [Framer Motion](https://www.framer.com/motion/) - Animation library
+- 🔄 [React Router](https://reactrouter.com/) - Client-side routing
+- 📡 [Axios](https://axios-http.com/) - HTTP client
+- 🎬 [TMDB API](https://www.themoviedb.org/documentation/api) - Movie and TV show data
+- 🎞️ [Swiper](https://swiperjs.com/) - Touch slider component
+- 🌗 [next-themes](https://github.com/pacocoursey/next-themes) - Theme management
 
-```bash
-git clone https://github.com/frontio-ai/vite-template.git
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or later)
+- npm or yarn
+- TMDB API key (get it from [TMDB](https://www.themoviedb.org/settings/api))
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/movie-explorer.git
+   cd movie-explorer
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
+
+3. Create a `.env` file in the root directory and add your TMDB API key:
+   ```env
+   VITE_TMDB_API_KEY=your_api_key_here
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## 📂 Project Structure
+
+```
+src/
+├── components/     # Reusable UI components
+├── pages/         # Page components
+├── services/      # API services and utilities
+├── styles/        # Global styles
+└── App.jsx        # Main application component
 ```
 
-### Install dependencies
+## 🛠 Available Scripts
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-```bash
-npm install
-```
+## 📝 License
 
-### Run the development server
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-```bash
-npm run dev
-```
+## 🙏 Acknowledgments
 
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/frontio-ai/vite-template/blob/main/LICENSE).
+- [TMDB](https://www.themovied.com) for the movie data
+- [HeroUI](https://heroui.com) for the beautiful UI components
+- All the amazing open-source libraries used in this project
