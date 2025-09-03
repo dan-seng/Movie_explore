@@ -58,3 +58,13 @@ export const getTopRatedTVShows = async () => {
   });
   return response.data.results || [];
 };
+
+export const getMovieVideos = async (movieId) => {
+  try {
+    const response = await apiClient.get(`/movie/${movieId}/videos`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching movie videos:', error);
+    throw error;
+  }
+};
