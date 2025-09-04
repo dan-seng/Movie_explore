@@ -1,27 +1,9 @@
-import { getTrendingMovies } from "../services/api";
-import { useState, useEffect } from "react";
 import { Image } from "@heroui/react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Loading from "./Loading";
 
-export default function MovieGrid(){
-    const [movies, setMovies] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchMovies = async () => {
-          try {
-            const data = await getTrendingMovies();
-            setMovies(data.slice(0, 60)); 
-          } catch (error) {
-            console.error('Error fetching movies:', error);
-          } finally {
-            setLoading(false);
-          }
-        };
-        
-        fetchMovies();
-      }, []);
+export default function MovieGrid({ movies = [], loading = false }) {
     return(
         <div className="container mx-auto px-4 py-8">
            {loading ? (
@@ -72,9 +54,12 @@ export default function MovieGrid(){
                           <p className="text-gray-300 text-sm line-clamp-2 mb-2">{movie.overview}</p>
                           <div className="flex justify-between items-center text-xs text-gray-400">
                             <span>{new Date(movie.release_date).getFullYear()}</span>
-                            <button className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-full text-xs font-medium transition-colors">
-                              Watch Now
-                            </button>
+                            <Link 
+                              to={`/movie/${movie.id}`}
+                              className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-full text-xs font-medium transition-colors"
+                            >
+                              View Details
+                            </Link>
                           </div>
                         </div>
                       </div>
