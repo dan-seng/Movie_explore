@@ -72,8 +72,7 @@ export default function MovieDetail() {
         
         <div className="md:w-2/3">
           <h1 className="text-4xl font-bold mb-4">{movie.title}</h1>
-          
-          {/* Trailer Section */}
+           
           {videos.length > 0 && (
             <div className="mb-6">
               {!showTrailer ? (
