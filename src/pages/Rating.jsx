@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getTopRatedMovies, getTopRatedTVShows } from "../services/api";
 import { Image } from "@heroui/react";
+import { Link } from "react-router-dom";
 
 export default function Rating() {
 
@@ -32,28 +33,49 @@ export default function Rating() {
         ) : error ? (
             <p>Error: {error.message}</p>
         ) : (
-            <div className="w-full grid grid-cols-3 gap-5 mt-5">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 px-4">
                 {movies.map((movie) => (
-                   <div key={movie.id} className="group border border-cyan-900 rounded-lg p-2 m-2 overflow-hidden">
-  <div className="relative rounded-lg overflow-hidden"> 
-    <Image
-      src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-      alt={movie.title}
-      width={400}
-      height={400}
-      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110 !visible !opacity-100"
-    />
-
-    {/* Add z-10 here to bring the overlay forward */}
-    <div className="absolute inset-0 bg-black/10 flex items-end p-3 transition-opacity duration-300 z-10">
-      <h2 className="font-semibold text-2xl text-white drop-shadow-md font-sans" >{movie.title} ({movie.vote_average.toFixed(1)} ⭐)</h2>
-    </div>
-  </div>
-
-  <p className="line-clamp-2 text-xs font-light text-gray-200 mt-2">{movie.overview}</p>
-  <p className="text-xs font-medium text-gray-200 font-sans" >Release Date: {movie.release_date}</p>
-</div>
+                  <div 
+                    key={movie.id} 
+                    className="group bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 dark:border-gray-700"
+                  >
+                    <div className="relative h-48 overflow-hidden">
+                      <Image
+                        src={movie.backdrop_path 
+                          ? `https://image.tmdb.org/t/p/w780${movie.backdrop_path}`
+                          : '/placeholder-movie.jpg'}
+                        alt={movie.title}
+                        width={400}
+                        height={225}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 !visible !opacity-100"
+                        unoptimized
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4 z-10">
+                        <div className="bg-yellow-400 text-gray-800 text-sm font-bold px-3 py-1 rounded-full absolute top-3 right-3">
+                          {movie.vote_average.toFixed(1)} 
+                        </div>
+                        <h2 className="text-white text-xl font-bold drop-shadow-lg line-clamp-2">
+                          {movie.title}
+                        </h2>
+                      </div>
+                    </div>
                     
+                    <div className="p-4">
+                      <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-3 mb-3">
+                        {movie.overview || 'No overview available.'}
+                      </p>
+                      <div className="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400">
+                        <span> {new Date(movie.release_date).toLocaleDateString()}</span>
+                                            
+                      <Link
+                        to={`/movie/${movie.id}`}
+                        className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium transition-colors"
+                      >
+                        View Details
+                      </Link>
+                                            </div>
+                    </div>
+                  </div>
                 ))}
             </div>
         )}
