@@ -68,3 +68,13 @@ export const getMovieVideos = async (movieId) => {
     throw error;
   }
 };
+
+export const getPopularMovies = async () => {
+  const response = await apiClient.get('/movie/popular', {
+    params: {
+      page: 1
+    }
+  });
+  return response.data.results || [];
+};
+
