@@ -78,3 +78,31 @@ export const getPopularMovies = async () => {
   return response.data.results || [];
 };
 
+export const getMovieGenres = async () => {
+  try {
+    const response = await apiClient.get('/genre/movie/list');
+    return response.data.genres || [];
+  } catch (error) {
+    console.error('Error fetching movie genres:', error);
+    return [];
+  }
+};
+
+export const getMoviesByGenre = async (genreId, page = 1) => {
+  try {
+    const response = await apiClient.get('/discover/movie', {
+      params: {
+        with_genres: genreId,
+        page: page,
+        sort_by: 'popularity.desc',
+        include_adult: false,
+        include_video: false
+      }
+    });
+    return response.data.results || [];
+  } catch (error) {
+    console.error('Error fetching movies by genre:', error);
+    throw error;
+  }
+};
+
