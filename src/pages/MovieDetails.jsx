@@ -1,12 +1,13 @@
 // src/components/MovieDetail.jsx
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getMovieDetails, getMovieVideos } from '../services/api';
 import { Image, Button } from '@heroui/react';
 import { Play, Youtube, ArrowLeft } from 'lucide-react';
 
 export default function MovieDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [movie, setMovie] = useState(null);
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -48,14 +49,14 @@ export default function MovieDetail() {
 
   return (
     <div className="container mx-auto p-4">
-      {/* Back Button */}
-      <Link 
-        to="/" 
+    
+      <button 
+        onClick={() => navigate(-1)}
         className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
       >
         <ArrowLeft size={20} className="mr-2" />
-        Back to Movies
-      </Link>
+        Back
+      </button>
 
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-1/3">
@@ -139,7 +140,6 @@ export default function MovieDetail() {
             </div>
           )}
 
-          {/* Additional Trailers Link */}
           {videos.length > 1 && (
             <div className="mt-6">
               <Link 
