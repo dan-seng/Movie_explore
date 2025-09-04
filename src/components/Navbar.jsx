@@ -149,7 +149,7 @@ export default function App() {
           <NavbarItem>
             <Link 
               color="foreground" 
-              href="/trailer" 
+              href="/trailor" 
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-semibold text-lg transition-all duration-200 hover:scale-105 relative group"
             >
               Trailer
