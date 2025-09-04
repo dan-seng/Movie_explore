@@ -4,6 +4,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getMovieDetails, getMovieVideos } from '../services/api';
 import { Image, Button } from '@heroui/react';
 import { Play, Youtube, ArrowLeft } from 'lucide-react';
+import Loading from '../components/Loading';
 
 export default function MovieDetail() {
   const { id } = useParams();
@@ -43,7 +44,7 @@ export default function MovieDetail() {
     }
   }, [id]);
 
-  if (loading) return <div className="p-4">Loading movie details...</div>;
+  if (loading) return <Loading message="Loading the movie..." />
   if (error) return <div className="p-4 text-red-500">{error}</div>;
   if (!movie) return <div className="p-4">Movie not found</div>;
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getTopRatedMovies, getTopRatedTVShows } from "../services/api";
 import { Image } from "@heroui/react";
 import { Link } from "react-router-dom";
+import Loading from "../components/Loading";
 
 export default function Rating() {
 
@@ -28,9 +29,8 @@ export default function Rating() {
     return(
         <>
         <h1 className="font-semibold mb-2 drop-shadow-lg text-center">Top rated movies</h1>
-        {loading ? (
-            <p>Loading...</p>
-        ) : error ? (
+        {loading ? 
+        <Loading message="Loading your movies..." /> : error ? (
             <p>Error: {error.message}</p>
         ) : (
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 px-4">

@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import Loading from './Loading';
 
 export default function Banner() {
   const [movies, setMovies] = useState([]);
@@ -31,11 +32,7 @@ export default function Banner() {
 
   if (loading) {
     return (
-      <div className="w-full h-[80vh] flex items-center justify-center bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900">
-        <div className="animate-pulse w-full h-full relative">
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
-        </div>
-      </div>
+      <Loading message="Loading your movies..." />
     );
   }
 
