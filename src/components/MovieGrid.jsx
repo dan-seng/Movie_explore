@@ -2,6 +2,7 @@ import { getTrendingMovies } from "../services/api";
 import { useState, useEffect } from "react";
 import { Image } from "@heroui/react";
 import { motion } from "framer-motion";
+import Loading from "./Loading";
 
 export default function MovieGrid(){
     const [movies, setMovies] = useState([]);
@@ -24,13 +25,7 @@ export default function MovieGrid(){
     return(
         <div className="container mx-auto px-4 py-8">
            {loading ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-              {[...Array(10)].map((_, i) => (
-                <div key={i} className="bg-gray-800 rounded-xl overflow-hidden h-80 animate-pulse">
-                  <div className="w-full h-full bg-gray-700"></div>
-                </div>
-              ))}
-            </div>
+            <Loading message="Loading your movies..." />
            ) : (
             <motion.div 
               className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
