@@ -2,8 +2,6 @@
 
 A modern, responsive movie discovery application built with React and powered by the TMDB API. Explore trending movies, search by genre, view movie details, and more.
 
-![Movie Explorer Screenshot](./public/screenshot.png)
-
 ## ✨ Features
 
 - 🎥 Browse trending movies
@@ -12,8 +10,6 @@ A modern, responsive movie discovery application built with React and powered by
 - 🎬 Watch movie trailers
 - 🌓 Dark/Light mode support
 - 📱 Fully responsive design
-- 🎭 Intuitive genre navigation with default Action genre loading
-- 🎞️ Comprehensive movie genre coverage (Action, Comedy, Drama, Documentary, etc.)
 
 ## 🛠️ Technologies Used
 
@@ -22,12 +18,11 @@ A modern, responsive movie discovery application built with React and powered by
 - 🎨 [HeroUI](https://heroui.com/) - Beautiful, responsive UI components
 - 🎨 [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
 - 🎞️ [Framer Motion](https://www.framer.com/motion/) - Animation library
-- 🔄 [React Router v6](https://reactrouter.com/) - Client-side routing with nested routes
+- 🔄 [React Router](https://reactrouter.com/) - Client-side routing
 - 📡 [Axios](https://axios-http.com/) - HTTP client
 - 🎬 [TMDB API](https://www.themoviedb.org/documentation/api) - Movie and TV show data
 - 🎞️ [Swiper](https://swiperjs.com/) - Touch slider component
 - 🌗 [next-themes](https://github.com/pacocoursey/next-themes) - Theme management
-- 🚀 [React Icons](https://react-icons.github.io/react-icons/) - Popular icons for React apps
 
 ## 🚀 Getting Started
 
@@ -36,14 +31,6 @@ A modern, responsive movie discovery application built with React and powered by
 - Node.js (v16 or later)
 - npm or yarn
 - TMDB API key (get it from [TMDB](https://www.themoviedb.org/settings/api))
-
-### Environment Setup
-
-1. Create a `.env` file in the root directory
-2. Add your TMDB API key:
-   ```
-   VITE_TMDB_API_KEY=your_api_key_here
-   ```
 
 ### Installation
 
