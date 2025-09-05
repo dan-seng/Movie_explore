@@ -134,7 +134,7 @@ export default function Footer() {
           <div className="mt-4 md:mt-0 flex items-center">
             <p className="flex items-center text-sm">
               Made with <Heart size={14} className="text-red-500 mx-1 animate-pulse" /> by
-              <span className="ml-1 font-medium text-gray-700 dark:text-gray-200">Dan Softwares</span>
+              <span className="ml-1 font-medium text-gray-700 dark:text-gray-200">Daniel Gidey</span>
             </p>
             <a
               href="https://github.com/dan-seng"
